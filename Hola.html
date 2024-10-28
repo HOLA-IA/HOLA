@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¿Quieres salir conmigo? 🍿</title>
+    
+    <!-- Agrega tu Favicon -->
+    <link rel="icon" href="image.png" type="image/x-icon">
+    
+    <!-- Fuentes Elegantes -->
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+
+    <style>
+        /* Fondo romántico */
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+            background: linear-gradient(135deg, #ff7eb3, #ff758c, #ff96a4);
+            font-family: 'Lobster', cursive; /* Cambiar a la fuente */
+            color: white;
+            text-align: center;
+        }
+
+        /* Tarjeta central */
+        .card {
+            background-color: rgba(255, 255, 255, 0.2);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+            position: relative;
+            max-width: 400px;
+            width: 100%;
+        }
+
+        h1 {
+            font-size: 2.5em; /* Aumentar tamaño del texto */
+            margin: 0 0 20px;
+            font-weight: normal; /* Normalizar peso de la fuente */
+        }
+
+        /* Estilo de los botones */
+        .buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+            position: relative;
+        }
+
+        .button {
+            padding: 10px 20px;
+            font-size: 1.2em; /* Aumentar tamaño del texto en los botones */
+            font-weight: bold;
+            color: #fff;
+            background-color: #ff4b7d;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        /* Efecto del botón al pasar el mouse */
+        .button:hover {
+            background-color: #ff7eb3;
+        }
+
+        /* Mensaje oculto */
+        .message {
+            display: none;
+            font-size: 1.5em;
+            color: #fff;
+            margin-top: 20px;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        /* Animación del mensaje */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* Mensaje romántico */
+        #romanticMessage {
+            display: none;
+            font-size: 1.5em;
+            color: #fff;
+            margin-top: 20px;
+            animation: fadeIn 1s ease-in-out;
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h1>¿Quieres salir conmigo al cine o a caminar? 🍿</h1>
+        <div class="buttons">
+            <button class="button button-yes" id="yesButton">Sí 🎉</button>
+            <button class="button button-no" onclick="showMessageNo()">No 😔</button>
+        </div>
+        <div class="message" id="message">
+            ¡Oh, qué pena! 😢 Espero que algún día te animes a compartir esta aventura conmigo. 🌹
+        </div>
+        <div class="message" id="romanticMessage">
+            ¡Sí genial! 🎉 ¡Eres la mejor, por no rendirte al decirme que SI!..... Ir al cine contigo será una experiencia mágica llena de momentos inolvidables. 🌟✨
+        </div>
+    </div>
+
+    <script>
+        const yesButton = document.getElementById("yesButton");
+        const card = document.querySelector(".card");
+        const message = document.getElementById("message");
+        const romanticMessage = document.getElementById("romanticMessage");
+
+        // Función para mover el botón "Sí" cuando el cursor está cerca
+        yesButton.addEventListener("mouseover", () => {
+            const x = Math.random() * (card.offsetWidth - yesButton.offsetWidth - 20);
+            const y = Math.random() * (card.offsetHeight - yesButton.offsetHeight - 50) + 50;
+
+            yesButton.style.position = "absolute";
+            yesButton.style.left = `${x}px`;
+            yesButton.style.top = `${y}px`;
+        });
+
+        // Función para mostrar el mensaje al presionar "No"
+        function showMessageNo() {
+            message.style.display = "block";
+        }
+
+        // Función para mostrar el mensaje romántico al hacer clic en "Sí"
+        yesButton.addEventListener("click", () => {
+            romanticMessage.style.display = "block";
+        });
+    </script>
+</body>
+</html>
